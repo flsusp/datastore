@@ -43,6 +43,11 @@ public abstract class Update {
 
 	protected abstract Expression getNowMinus(long amount, TimeUnit unit);
 
+	public Update set(Field field, Expression expression) {
+		fieldsToUpdate.add(new ListEntry<Field, Expression>(field, expression));
+		return this;
+	}
+
 	public Update set(Field field, Object value) {
 		fieldsToUpdate.add(new ListEntry<Field, Expression>(field, new ValueExpression(value)));
 		return this;

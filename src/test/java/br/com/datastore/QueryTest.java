@@ -1,6 +1,5 @@
 package br.com.datastore;
 
-import static br.com.a4c.datastore.DatabaseTimestamp.now;
 import static br.com.datastore.Alias.all;
 import static br.com.datastore.Alias.field;
 import static br.com.datastore.Coalesce.coalesce;
@@ -17,13 +16,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
-
-import br.com.datastore.Expression;
-import br.com.datastore.Field;
-import br.com.datastore.InlineValueExpression;
-import br.com.datastore.Query;
-import br.com.datastore.QueryResult;
-import br.com.datastore.TableName;
 
 public class QueryTest {
 
@@ -321,17 +313,6 @@ public class QueryTest {
 		String sql = query.toString();
 
 		assertEquals("(SELECT TABLE1.FIELD1, t2.* FROM TABLE1 JOIN TABLE2 t2 ON (TABLE1.FIELD1 = t2.FIELD3))", sql);
-		assertEquals(0, query.getParameters().length);
-	}
-
-	@Test
-	public void testQueryWithDatabaseDate() {
-		Query query = buildQuery();
-
-		query = query.select().from(TABLE1).where(field(FIELD1)).equalsTo(now());
-		String sql = query.toString();
-
-		assertEquals("(SELECT * FROM TABLE1 WHERE FIELD1 = current_timestamp)", sql);
 		assertEquals(0, query.getParameters().length);
 	}
 

@@ -11,11 +11,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 
-import br.com.datastore.Expression;
-import br.com.datastore.QueryResult;
-import br.com.datastore.TableName;
-import br.com.datastore.Update;
-
 public class UpdateTest {
 
 	@Test
@@ -58,6 +53,11 @@ public class UpdateTest {
 			@Override
 			protected Expression getNowMinus(long amount, TimeUnit unit) {
 				return null;
+			}
+
+			@Override
+			public Update setCurrentTimestamp(Field field) {
+				return set(field, new InlineValueExpression("current_timestamp"));
 			}
 		};
 	}

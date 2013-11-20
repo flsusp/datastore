@@ -5,10 +5,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import org.joda.time.DateTime;
 import org.junit.Test;
-
-import br.com.a4c.utils.DateUtils;
-import br.com.datastore.Value;
 
 public class ValueTest {
 
@@ -34,6 +32,6 @@ public class ValueTest {
 
 	@Test(expected = RuntimeException.class)
 	public void testGetAsStringUnsupportedType() {
-		Value.of(DateUtils.now()).getAsString();
+		Value.of(new DateTime()).getAsString();
 	}
 }
