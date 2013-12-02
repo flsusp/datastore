@@ -1,7 +1,6 @@
 package br.com.datastore;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -36,28 +35,20 @@ public class Function extends Expression {
 		return new Function(functionName, expressions);
 	}
 
-	public static Function function(String functionName, Expression... expressions) {
-		return new Function(functionName, Arrays.asList(expressions));
-	}
-
-	public static Function function(String functionName, Field... fields) {
-		List<Expression> expressions = new ArrayList<Expression>();
-		for (Field field : fields) {
-			expressions.add(new FieldExpression(field));
-		}
-		return new Function(functionName, expressions);
-	}
-
 	public static Function count(Field field) {
-		List<Expression> expressions = new ArrayList<Expression>();
-		expressions.add(new FieldExpression(field));
-		return new Function("count", expressions);
+		return function("count", field);
 	}
 
 	public static Function count() {
-		List<Expression> expressions = new ArrayList<Expression>();
-		expressions.add(Alias.all());
-		return new Function("count", expressions);
+		return function("count", Alias.all());
+	}
+
+	public static Function sum(Object obj) {
+		return function("sum", obj);
+	}
+
+	public static Function coalesce(Object... objs) {
+		return function("coalesce", objs);
 	}
 
 	@Override
