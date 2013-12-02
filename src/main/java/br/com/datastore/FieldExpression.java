@@ -2,7 +2,7 @@ package br.com.datastore;
 
 import java.util.List;
 
-public class FieldExpression extends Expression  {
+public class FieldExpression extends Expression {
 
 	private final Field field;
 

@@ -1,6 +1,5 @@
 package br.com.datastore;
 
-
 public abstract class Alias {
 
 	public static Field field(Field field) {

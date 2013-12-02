@@ -1,6 +1,5 @@
 package br.com.datastore;
 
-
 public class Join implements From {
 
 	protected final From leftSide;

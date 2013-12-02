@@ -1,6 +1,5 @@
 package br.com.datastore;
 
-
 public class AliasAll implements Field {
 
 	private String alias;

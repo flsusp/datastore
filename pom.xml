@@ -81,6 +81,26 @@
                                         </execution>
                                 </executions>
                         </plugin>
+                        <plugin>
+                                <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+                                <artifactId>maven-java-formatter-plugin</artifactId>
+                                <version>0.4</version>
+                                <executions>
+                                        <execution>
+                                                <goals>
+                                                        <goal>format</goal>
+                                                </goals>
+                                        </execution>
+                                </executions>
+                                <configuration>
+                                        <compilerSource>1.7</compilerSource>
+                                        <compilerCompliance>1.7</compilerCompliance>
+                                        <compilerTargetPlatform>1.7</compilerTargetPlatform>
+                                        <lineEnding>LF</lineEnding>
+                                        <encoding>UTF-8</encoding>
+                                        <configFile>formatter.xml</configFile>
+                                </configuration>
+                        </plugin>
 		</plugins>
 	</build>
 

@@ -1,5 +1,5 @@
 package br.com.datastore;
 
-public interface Field  {
+public interface Field {
 	String name();
 }
